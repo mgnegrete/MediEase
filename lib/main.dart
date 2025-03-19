@@ -12,7 +12,7 @@ class MediEaseApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MediEase',
+      title: 'MediEasePART2',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: const Color(0xFF660033),
@@ -156,23 +156,28 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Logo with pulse animation
-          TweenAnimationBuilder(
-            tween: Tween<double>(begin: 0.95, end: 1.0),
-            duration: const Duration(seconds: 2),
-            curve: Curves.elasticOut,
-            builder: (context, value, child) {
-              return Transform.scale(
-                scale: value,
-                child: child,
-              );
+          // Logo with pulse animation, now clickable
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed('/'); // Adjust route as needed
             },
-            child: Text(
-              'MediEase',
-              style: GoogleFonts.poppins(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+            child: TweenAnimationBuilder(
+              tween: Tween<double>(begin: 0.95, end: 1.0),
+              duration: const Duration(seconds: 2),
+              curve: Curves.elasticOut,
+              builder: (context, value, child) {
+                return Transform.scale(
+                  scale: value,
+                  child: child,
+                );
+              },
+              child: Text(
+                'MediEase', // Now a link to the main page
+                style: GoogleFonts.poppins(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
