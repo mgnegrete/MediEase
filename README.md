@@ -21,7 +21,7 @@ Make sure you have the following installed on your computer:
 Clone the project to your local machine using Git:
 
 ```bash
-git clone https://github.com/your-username/mediease.git
+git clone https://github.com/mgnegrete/mediease.git
 ```
 
 Navigate into the project directory:
