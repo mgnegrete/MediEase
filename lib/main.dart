@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'profile_page.dart';
 import 'dart:math' as math;
 
 void main() {
@@ -24,8 +25,12 @@ class MediEaseApp extends StatelessWidget {
         textTheme: GoogleFonts.poppinsTextTheme(),
         useMaterial3: true,
       ),
-      home: const HomePage(),
-    );
+      routes:{
+        '/': (context) => const HomePage(),
+        '/profile_page': (context) => const ProfilePage(),
+      },
+        //home: const HomePage(),
+      );
   }
 }
 
@@ -201,7 +206,9 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                     ],
                   ),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/profile_page');
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.transparent,
                       foregroundColor: Colors.white,
