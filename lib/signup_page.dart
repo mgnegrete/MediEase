@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mediease/profile_page.dart';
 
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  const SignUpPage({super.key});
 
   @override
   _SignUpPageState createState() => _SignUpPageState();
@@ -17,7 +17,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFCE4EC), // Light pink background
+      backgroundColor: const Color(0xFFFCE4EC), // Light pink background
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -31,7 +31,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: Color(0xFF800040), // Deep maroon color
+                      color: const Color(0xFF800040), // Deep maroon color
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
@@ -41,7 +41,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ],
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.person_add,
                       color: Colors.white,
                       size: 40,
@@ -50,7 +50,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   const SizedBox(height: 24),
                   
                   // Welcome Text
-                  Text(
+                  const Text(
                     'Create Account',
                     style: TextStyle(
                       fontSize: 28,
@@ -74,7 +74,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       filled: true,
                       fillColor: Colors.white,
                       hintText: 'Full Name',
-                      prefixIcon: Icon(Icons.person, color: Color(0xFF800040)),
+                      prefixIcon: const Icon(Icons.person, color: Color(0xFF800040)),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide.none,
@@ -95,7 +95,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       filled: true,
                       fillColor: Colors.white,
                       hintText: 'Email',
-                      prefixIcon: Icon(Icons.email, color: Color(0xFF800040)),
+                      prefixIcon: const Icon(Icons.email, color: Color(0xFF800040)),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide.none,
@@ -120,11 +120,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       filled: true,
                       fillColor: Colors.white,
                       hintText: 'Password',
-                      prefixIcon: Icon(Icons.lock, color: Color(0xFF800040)),
+                      prefixIcon: const Icon(Icons.lock, color: Color(0xFF800040)),
                       suffixIcon: IconButton(
                         icon: Icon(
                           _obscurePassword ? Icons.visibility : Icons.visibility_off,
-                          color: Color(0xFF800040),
+                          color: const Color(0xFF800040),
                         ),
                         onPressed: () {
                           setState(() {
@@ -156,11 +156,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       filled: true,
                       fillColor: Colors.white,
                       hintText: 'Confirm Password',
-                      prefixIcon: Icon(Icons.lock_outline, color: Color(0xFF800040)),
+                      prefixIcon: const Icon(Icons.lock_outline, color: Color(0xFF800040)),
                       suffixIcon: IconButton(
                         icon: Icon(
                           _obscureConfirmPassword ? Icons.visibility : Icons.visibility_off,
-                          color: Color(0xFF800040),
+                          color: const Color(0xFF800040),
                         ),
                         onPressed: () {
                           setState(() {
@@ -188,7 +188,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     children: [
                       Checkbox(
                         value: _rememberMe,
-                        activeColor: Color(0xFF800040),
+                        activeColor: const Color(0xFF800040),
                         onChanged: (value) {
                           setState(() {
                             _rememberMe = value!;
@@ -221,13 +221,13 @@ class _SignUpPageState extends State<SignUpPage> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF800040),
+                        backgroundColor: const Color(0xFF800040),
                         foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Sign Up',
                         style: TextStyle(fontSize: 16),
                       ),
@@ -247,7 +247,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: Text(
+                        child: const Text(
                           'Sign In',
                           style: TextStyle(
                             color: Color(0xFF800040),

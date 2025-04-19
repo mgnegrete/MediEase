@@ -131,6 +131,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 }
 
 class NavBar extends StatefulWidget {
+  const NavBar({super.key});
+
   @override
   State<NavBar> createState() => _NavBarState();
 }
@@ -320,7 +322,7 @@ class AnimatedWavePainter extends CustomPainter {
 class HeroSection extends StatefulWidget {
   final AnimationController animationController;
   
-  const HeroSection({required this.animationController});
+  const HeroSection({super.key, required this.animationController});
 
   @override
   State<HeroSection> createState() => _HeroSectionState();
@@ -350,13 +352,13 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 80),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            const Color(0xFF660033),
-            const Color(0xFF450022),
+            Color(0xFF660033),
+            Color(0xFF450022),
           ],
         ),
       ),
@@ -493,7 +495,7 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
 class FeaturesSection extends StatelessWidget {
   final double scrollPosition;
   
-  const FeaturesSection({required this.scrollPosition});
+  const FeaturesSection({super.key, required this.scrollPosition});
 
   @override
   Widget build(BuildContext context) {
@@ -550,7 +552,7 @@ class AnimatedFeatureCard extends StatefulWidget {
   final bool isVisible;
   final int delay;
 
-  const AnimatedFeatureCard({
+  const AnimatedFeatureCard({super.key, 
     required this.icon,
     required this.title,
     required this.description,
@@ -698,7 +700,7 @@ class _AnimatedFeatureCardState extends State<AnimatedFeatureCard>
                             child: Center(
                               child: Text(
                                 'Image: ${widget.imagePath}',
-                                style: TextStyle(color: Colors.grey),
+                                style: const TextStyle(color: Colors.grey),
                               ),
                             ),
                           ),
@@ -747,6 +749,8 @@ class _AnimatedFeatureCardState extends State<AnimatedFeatureCard>
 }
 
 class Footer extends StatelessWidget {
+  const Footer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -3,7 +3,7 @@ import 'package:mediease/profile_page.dart';
 import 'package:mediease/signup_page.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final primaryColor = const Color(0xFF660033);
+    const primaryColor = Color(0xFF660033);
     final lightPrimaryColor = HSLColor.fromColor(primaryColor)
         .withLightness(0.8)
         .toColor();

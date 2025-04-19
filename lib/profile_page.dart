@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class ProfilePage extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFF660033), Colors.purple.shade100],
+            colors: [const Color(0xFF660033), Colors.purple.shade100],
           ),
         ),
         child: SafeArea(
