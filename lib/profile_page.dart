@@ -90,6 +90,8 @@ class ProfilePage extends StatelessWidget {
                         _buildInfoRow(Icons.email, 'Email', 'johndoe@example.com'),
                         const SizedBox(height: 16),
                         _buildInfoRow(Icons.medical_services, 'Primary Doctor', 'Dr. Sarah Johnson'),
+                        const SizedBox(height: 16),
+                        _buildInfoRow(Icons.note, 'Doctor Notes', 'Dr. Sarah Johnson'),
                       ],
                     ),
                   ),
@@ -320,83 +322,89 @@ class ProfilePage extends StatelessWidget {
   ) {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (context) {
-        return Container(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
+        return Padding(
+          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: Container(
+            padding: const EdgeInsets.all(24),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.purple.shade100,
-                    radius: 24,
-                    child: Icon(
-                      Icons.medical_services,
-                      color: Colors.purple.shade700,
-                    ),
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.purple.shade100,
+                        radius: 24,
+                        child: Icon(
+                          Icons.medical_services,
+                          color: Colors.purple.shade700,
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              title,
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              department,
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.grey.shade700,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          title,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          department,
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.grey.shade700,
-                          ),
-                        ),
-                      ],
-                    ),
+                  const SizedBox(height: 24),
+                  _detailRow(Icons.calendar_today, 'Date', date),
+                  const SizedBox(height: 12),
+                  _detailRow(Icons.access_time, 'Time', time),
+                  const SizedBox(height: 12),
+                  _detailRow(Icons.location_on, 'Location', 'Main Hospital, Floor 3, Room 302'),
+                  const SizedBox(height: 12),
+                  _detailRow(Icons.person, 'Doctor Notes', 'Please fast 12 hours prior to appointmnent.'),
+                  const SizedBox(height: 24),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _appointmentActionButton(
+                        context,
+                        Icons.edit_calendar,
+                        'Reschedule',
+                        Colors.orange.shade700,
+                      ),
+                      _appointmentActionButton(
+                        context,
+                        Icons.cancel,
+                        'Cancel',
+                        Colors.red.shade700,
+                      ),
+                      _appointmentActionButton(
+                        context,
+                        Icons.check_circle,
+                        'Confirm',
+                        Colors.green.shade700,
+                      ),
+                    ],
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
-              _detailRow(Icons.calendar_today, 'Date', date),
-              const SizedBox(height: 12),
-              _detailRow(Icons.access_time, 'Time', time),
-              const SizedBox(height: 12),
-              _detailRow(Icons.location_on, 'Location', 'Main Hospital, Floor 3, Room 302'),
-              const SizedBox(height: 12),
-              _detailRow(Icons.person, 'Doctor', 'Dr. Robert Smith'),
-              const SizedBox(height: 24),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  _appointmentActionButton(
-                    context,
-                    Icons.edit_calendar,
-                    'Reschedule',
-                    Colors.orange.shade700,
-                  ),
-                  _appointmentActionButton(
-                    context,
-                    Icons.cancel,
-                    'Cancel',
-                    Colors.red.shade700,
-                  ),
-                  _appointmentActionButton(
-                    context,
-                    Icons.check_circle,
-                    'Confirm',
-                    Colors.green.shade700,
-                  ),
-                ],
-              ),
-            ],
+            ),
           ),
         );
       },

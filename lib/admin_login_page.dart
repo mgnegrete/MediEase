@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:mediease/login_page.dart';
 import 'package:mediease/profile_page.dart';
 import 'package:mediease/signup_page.dart';
 import 'package:mediease/admin_page.dart';
-import 'package:mediease/admin_login_page.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class AdminLoginPage extends StatefulWidget {
+  const AdminLoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<AdminLoginPage> createState() => _AdminLoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _AdminLoginPageState extends State<AdminLoginPage> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                   
                   // Welcome Text
                   Text(
-                    'Welcome Back',
+                    'Administrative Login',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: primaryColor,
@@ -246,7 +246,7 @@ class _LoginPageState extends State<LoginPage> {
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const ProfilePage(),
+                                  builder: (context) => const AdminDashboardPage(),
                                 ),
                               );
                             }
@@ -269,43 +269,13 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         const SizedBox(height: 16),
-
-                        // Admin Login Button
-                        OutlinedButton(
-                          onPressed: () {
-                            // Navigate to admin page (or show an admin login dialog)
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const AdminLoginPage(),
-                              ),
-                            );
-                          },
-                          style: OutlinedButton.styleFrom(
-                            foregroundColor: primaryColor,
-                            side: BorderSide(color: primaryColor),
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          child: const Text(
-                            'Admin Login',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-
-                        const SizedBox(height: 16),
                         
-                        // Sign Up Link
+                        // Go Back Link
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Don\'t have an account?',
+                              'Go Back',
                               style: TextStyle(
                                 color: Colors.grey.shade700,
                               ),
@@ -316,12 +286,12 @@ class _LoginPageState extends State<LoginPage> {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const SignUpPage(),
+                                    builder: (context) => const LoginPage(),
                                   ),
                                 );
                               },
                               child: Text(
-                                'Sign Up',
+                                'Go Back',
                                 style: TextStyle(
                                   color: primaryColor,
                                   fontWeight: FontWeight.bold,
