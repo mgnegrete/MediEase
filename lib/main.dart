@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mediease/appointment_page.dart';
 import 'profile_page.dart';
 import 'login_page.dart';
 import 'dart:math' as math;
@@ -30,6 +31,7 @@ class MediEaseApp extends StatelessWidget {
         '/': (context) => const HomePage(),
         '/profile_page': (context) => const ProfilePage(),
         '/login_page': (context) => const LoginPage(),
+        '/appointment_page': (context) => BookAppointmentPage(),
       },
         //home: const HomePage(),
       );
@@ -450,7 +452,9 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                     ? (Matrix4.identity()..scale(1.05))
                     : Matrix4.identity(),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/login_page');
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     foregroundColor: const Color(0xFF660033),
