@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mediease/appointment_page.dart';
+import 'package:mediease/confirmed_appointment_page.dart';
 import 'profile_page.dart';
 import 'login_page.dart';
 import 'dart:math' as math;
@@ -32,6 +33,14 @@ class MediEaseApp extends StatelessWidget {
         '/profile_page': (context) => const ProfilePage(),
         '/login_page': (context) => const LoginPage(),
         '/appointment_page': (context) => BookAppointmentPage(),
+        '/confirmed_appointment': (context) {
+          final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+          return ConfirmedAppointmentPage(
+            appointmentType: args['appointmentType'],
+            appointmentDay: args['appointmentDay'],
+            appointmentTime: args['appointmentTime'],
+          );
+        },
       },
         //home: const HomePage(),
       );
