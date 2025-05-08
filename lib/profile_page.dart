@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mediease/appointment_page.dart';
 
 
 class ProfilePage extends StatelessWidget {
@@ -12,7 +13,7 @@ class ProfilePage extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [const Color(0xFF660033), Colors.purple.shade100],
+            colors: [ Colors.white, const Color(0xFF660033)],
           ),
         ),
         child: SafeArea(
@@ -113,9 +114,7 @@ class ProfilePage extends StatelessWidget {
                     ElevatedButton.icon(
                       onPressed: () {
                         // New appointment logic
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('New Appointment')),
-                        );
+                        Navigator.of(context).pushNamed('/appointment_page');
                       },
                       icon: const Icon(Icons.add),
                       label: const Text('New'),

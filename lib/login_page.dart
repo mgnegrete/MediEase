@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     const primaryColor = Color(0xFF660033);
     final lightPrimaryColor = HSLColor.fromColor(primaryColor)
-        .withLightness(0.8)
+        .withLightness(1.0)
         .toColor();
 
     return Scaffold(
@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: primaryColor.withOpacity(0.2),
+                          color: primaryColor.withOpacity(0.1),
                           blurRadius: 12,
                           spreadRadius: 4,
                         ),
