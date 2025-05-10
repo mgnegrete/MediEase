@@ -710,11 +710,11 @@ class _AnimatedFeatureCardState extends State<AnimatedFeatureCard>
                             height: 180,
                             width: 250,
                             color: Colors.grey.shade200,
-                            child: Center(
-                              child: Text(
-                                'Image: ${widget.imagePath}',
-                                style: const TextStyle(color: Colors.grey),
-                              ),
+                            child: Image.asset(
+                              widget.imagePath,
+                              fit: BoxFit.cover,
+                              height: 180,
+                              width: 250,
                             ),
                           ),
                         ),
